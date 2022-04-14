@@ -15,21 +15,21 @@ entrar en xampp\htdocs\andinatest\backend\ .env
 
 ** modificar según sus credenciales 
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=producto     
-DB_USERNAME=root
-DB_PASSWORD=
+DB_CONNECTION=mysql  
+DB_HOST=127.0.0.1  
+DB_PORT=3306  
+DB_DATABASE=producto       
+DB_USERNAME=root  
+DB_PASSWORD=  
   
----------------
-ejecutar 2 CMD y situarla en la siguientes rutas:
-cmd1: -----      htdocs/andinatest/backend
-cmd2: -----      htdocs/andinatest/proyecto
--------
-en cmd1 ejecutar: php artisan serve
-----------
-en cmd2 ejecutar: ng serve
+ejecutar 2 CMD y situarla en la siguientes rutas:   
+cmd1: -----      htdocs/andinatest/backend   
+cmd2: -----      htdocs/andinatest/proyecto   
+
+en cmd1 ejecutar: php artisan serve   
+----------   
+en cmd2 ejecutar: ng serve   
+----------   
 
 ----------------------------------------------------
 Utilizar aplicativo a traves de http://localhost:4200/producto/index
