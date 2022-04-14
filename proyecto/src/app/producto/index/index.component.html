@@ -1,0 +1,307 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+        <h4>Productos</h4>
+        <a routerLink="/producto/create" class="btn btn-success">Crear Producto</a>
+    </div>
+
+    <br>
+    <table class="table table-dark table-striped">
+        <tr>
+            <th style="text-align: center">ID</th>
+            <th style="text-align: center">Nombre</th>
+            <th style="text-align: center">Precio</th>
+            <th style="text-align: center">Cantidad</th>
+            <th width="220px" style="text-align: center">Imagen</th>
+            <th style="text-align: center">Observaciones</th>
+            <th style="text-align: center">Ciudades</th>
+            <th width="220px" style="text-align: center">Action</th>
+        </tr>
+        <tr *ngFor="let producto of productos">
+            <td style="text-align: center">{{ producto.id }}</td>
+            <td style="text-align: center">{{ producto.nombre }}</td>
+            <td style="text-align: center">{{ producto.precio }}</td>
+            <td style="text-align: center">{{ producto.cantidad }}</td>
+            <td style="text-align: center"><img width="80px" [src]="producto.imagen64" alt=""> </td>
+            <td style="text-align: center">{{ producto.observaciones }}</td>
+
+            <td style="text-align: center">
+                <div *ngIf="producto.c1 !== 'no'">
+                    <button type="button" class="badge badge-success" data-toggle="modal" data-target="#Modal1">
+                    {{ producto.c1 }}
+                    </button>
+                </div>
+                <div *ngIf="producto.c2 !== 'no'">
+                    <button type="button" class="badge badge-success" data-toggle="modal" data-target="#Modal2">
+                        {{ producto.c2 }}
+                        </button></div>
+                <div *ngIf="producto.c3 !== 'no'">
+                    <button type="button" class="badge badge-success" data-toggle="modal" data-target="#Modal3">
+                        {{ producto.c3 }}
+                        </button></div>
+                <div *ngIf="producto.c4 !== 'no'">
+                    <button type="button" class="badge badge-success" data-toggle="modal" data-target="#Modal4">
+                        {{ producto.c4 }}
+                        </button>
+                </div>
+                <div *ngIf="producto.c5 !== 'no'">
+                    <button type="button" class="badge badge-success" data-toggle="modal" data-target="#Modal5">
+                        {{ producto.c5 }}
+                        </button>
+                </div>
+                <div *ngIf="producto.c6 !== 'no'">
+                    <button type="button" class="badge badge-success" data-toggle="modal" data-target="#Modal6">
+                        {{ producto.c6 }}
+                        </button>
+                </div>
+            </td>
+            <td style="text-align: center">
+                <a href="#" [routerLink]="['/producto/', 'edit', producto.id  ]" class="btn btn-primary">Editar</a>
+                <button type="button" (click)="deleteProducto(producto.id)" class="btn btn-danger">Eliminar</button>
+            </td>
+
+        </tr>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mapouter">
+                        <div class="gmap_canvas" style="text-align: center;"><iframe width="400" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=unilago&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <br>
+                            <style>
+                                .mapouter {
+                                    position: relative;
+                                    text-align: right;
+                                    height: 400px;
+                                    width: 400px;
+                                }
+                            </style>
+                            <style>
+                                .gmap_canvas {
+                                    overflow: hidden;
+                                    background: none!important;
+                                    height: 400px;
+                                    width: 400px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tienda Medellin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mapouter">
+                        <div class="gmap_canvas" style="text-align: center;"><iframe width="400" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=el%20tesoro%20parque%20comercial&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <br>
+                            <style>
+                                .mapouter {
+                                    position: relative;
+                                    text-align: right;
+                                    height: 400px;
+                                    width: 400px;
+                                }
+                            </style>
+                            <style>
+                                .gmap_canvas {
+                                    overflow: hidden;
+                                    background: none!important;
+                                    height: 400px;
+                                    width: 400px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tienda Cali</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <div class="mapouter">
+                        <div class="gmap_canvas" style="text-align: center;"><iframe width="400" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=centro%20comercial%20La%20pasarela&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <br>
+                            <style>
+                                .mapouter {
+                                    position: relative;
+                                    text-align: right;
+                                    height: 500px;
+                                    width: 488px;
+                                }
+                            </style>
+                            <style>
+                                .gmap_canvas {
+                                    overflow: hidden;
+                                    background: none!important;
+                                    height: 500px;
+                                    width: 488px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tienda Cartagena</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+
+
+                <div class="modal-body">
+                    <div class="mapouter">
+                        <div class="gmap_canvas" style="text-align: center;"><iframe width="400" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Plaza%20Bocagrande%20Centro%20Comercial&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <br>
+                            <style>
+                                .mapouter {
+                                    position: relative;
+                                    text-align: right;
+                                    height: 400px;
+                                    width: 400px;
+                                }
+                            </style>
+                            <style>
+                                .gmap_canvas {
+                                    overflow: hidden;
+                                    background: none!important;
+                                    height: 400px;
+                                    width: 400px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tienda Pereira</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mapouter">
+                        <div class="gmap_canvas" style="text-align: center;"><iframe width="400" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Centro%20Comercial%20Pereira%20Plaza&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <br>
+                            <style>
+                                .mapouter {
+                                    position: relative;
+                                    text-align: right;
+                                    height: 400px;
+                                    width: 400px;
+                                }
+                            </style>
+                            <style>
+                                .gmap_canvas {
+                                    overflow: hidden;
+                                    background: none!important;
+                                    height: 400px;
+                                    width: 400px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Modal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tienda Manizales</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="mapouter">
+                        <div class="gmap_canvas" style="text-align: center;"><iframe width="400" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Mallplaza%20Manizales%20Centro%20Comercial&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <br>
+                            <style>
+                                .mapouter {
+                                    position: relative;
+                                    text-align: right;
+                                    height: 400px;
+                                    width: 400px;
+                                }
+                            </style>
+                            <style>
+                                .gmap_canvas {
+                                    overflow: hidden;
+                                    background: none!important;
+                                    height: 400px;
+                                    width: 400px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,91 @@
+<div class="container">
+
+    <div class="d-flex justify-content-between">
+        <h4>Editar producto</h4>
+        <a href="#" routerLink="/producto/index" class="btn btn-primaryt">Volver</a>
+    </div>
+
+    <hr>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="nombre">Nombre:</label>
+                <input formControlName="nombre" [(ngModel)]="producto.nombre" id="nombre" type="text" class="form-control">
+                <div *ngIf="f.nombre.touched && f.nombre.invalid" class="alert alert-danger">
+                    <div *ngIf="f.nombre.errors.required">*Nombre requerido.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="precio">Precio:</label>
+                <input formControlName="precio" [(ngModel)]="producto.precio" id="precio" type="number" class="form-control">
+                <div *ngIf="f.precio.touched && f.precio.invalid" class="alert alert-danger">
+                    <div *ngIf="f.precio.errors.required">*Preciorequerido.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="cantidad">Cantidad:</label>
+                <input formControlName="cantidad" [(ngModel)]="producto.cantidad" id="cantidad" type="number" class="form-control">
+                <div *ngIf="f.cantidad.touched && f.cantidad.invalid" class="alert alert-danger">
+                    <div *ngIf="f.cantidad.errors.required">*cantidad requerido.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Imagen-->
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="imagen">Imagen del producto:</label>
+                <br>
+                <input formControlName="imagen" type="file" (change)="imagenSeleccionada($event)">
+
+                <!-- previzualización de imagen-->
+                <div *ngIf="previsualizacion">
+                    <img width="150px" [src]="previsualizacion" alt="">
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="observaciones">Observaciones:</label>
+                <input formControlName="observaciones" [(ngModel)]="producto.observaciones" id="observaciones" type="text" class="form-control">
+                <div *ngIf="f.observaciones.touched && f.observaciones.invalid" class="alert alert-danger">
+                    <div *ngIf="f.observaciones.errors.required">*observaciones requerido.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label>Producto disponibles en:</label><br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <label><input type="checkbox" [(ngModel)]="producto.c1" formControlName="c1" id="c1" value="c1"> Bogota</label><br>
+                            <label><input type="checkbox" [(ngModel)]="producto.c2" formControlName="c2" id="c2" value="c2"> Medellin</label><br>
+                            <label><input type="checkbox" [(ngModel)]="producto.c3" formControlName="c3" id="c3" value="c3"> Cali</label><br>
+                        </div>
+                        <div class="col">
+                            <label><input type="checkbox" [(ngModel)]="producto.c4" formControlName="c4" id="c4" value="c4"> Cartagena</label><br>
+                            <label><input type="checkbox" [(ngModel)]="producto.c5" formControlName="c5" id="c5" value="c5"> Pereira</label><br>
+                            <label><input type="checkbox" [(ngModel)]="producto.c6" formControlName="c6" id="c6" value="c6"> Manizales</label><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>
